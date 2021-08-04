@@ -30,7 +30,8 @@ if(isset($_POST['TblBeli'])) {
 }
 
 $db=dbConnect();
-$data=mysqli_query($conn,"SELECT * FROM menu WHERE stok > 0");
+//PROCEDURE tampilMenu() MYSQL
+$data=mysqli_query($conn,"call tampilMenu()");
 $jumlah_data = mysqli_num_rows($data);
 ?>
         <!-- Main Content -->

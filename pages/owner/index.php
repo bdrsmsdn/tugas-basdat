@@ -85,7 +85,7 @@ $total_halaman = ceil($jumlah_data / $batas);
 $halaman_2akhir = $total_halaman - 1;
 $adjacents = "2";
 
-$data_produk = mysqli_query($conn,"select * from pembayaran where status = 1 limit $halaman_awal, $batas");
+$data_produk = mysqli_query($conn,"select l.id_pembayaran, l.tanggal_laporan, l.total_pembayaran, p.status from laporan as l join pembayaran as p on l.id_pembayaran = p.id_pembayaran where p.status = 1 limit $halaman_awal, $batas");
 				$nomor = $halaman_awal+1;
        ?> 
             <div class="row">
@@ -101,7 +101,7 @@ $data_produk = mysqli_query($conn,"select * from pembayaran where status = 1 lim
         <td><?= $no++; ?></td>
         <td><?= $d['id_pembayaran']; ?></td>
         <td><?php echo $d["total_pembayaran"] ?></td>
-        <td><?php echo $d["tgl_pembayaran"] ?></td>
+        <td><?php echo $d["tanggal_laporan"] ?></td>
         
     </tr>
     <?php 

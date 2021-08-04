@@ -1,6 +1,7 @@
 <?php require_once('./header.php') ?>
 <?php $db=dbConnect();
-$data=mysqli_query($conn,"SELECT pe.status, m.nama_menu, p.jumlah_pesanan, m.stok, m.harga_menu FROM pesanan as p JOIN menu as m JOIN pembayaran as pe ON p.id_menu = m.id_menu AND pe.id_pesanan = p.id_pesanan ORDER BY tanggal desc"); ?>
+//PROCEDURE infoPesanan MYSQL
+$data=mysqli_query($conn,"call infoPesanan"); ?>
         <!-- Main Content -->
         <div class="main-content">
           <section class="section">
